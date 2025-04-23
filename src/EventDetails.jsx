@@ -32,8 +32,8 @@ const EventDetails = ({ event }) => {
       },
       body: JSON.stringify(booking)
     })
-      .then(res => {
-        if (res.ok) {
+      .then(r => {
+        if (r.ok) {
           setSuccess(true);
           setForm({ name: '', email: '', phoneNo: '', noOfTickets: 1 });
         }
@@ -51,7 +51,8 @@ const EventDetails = ({ event }) => {
       <p><strong>Price:</strong> KES {event.price}</p>
       <p><strong>Tickets Left:</strong> {event.tickets}</p>
 
-      <hr />
+        
+     
 
       <h3>Book Your Spot</h3>
       {success && <p style={{ color: 'green' }}>Booking successful!</p>}
