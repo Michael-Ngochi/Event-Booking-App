@@ -80,7 +80,7 @@ const ContactUs = () => {
           <strong>Email:</strong> support@eventify.com
         </p>
         <p className="contact-info-item">
-          <strong>Phone:</strong> +254 7123456 <br /> 
+          <strong>Phone:</strong> +254 712345658 <br /> 
         </p>
         <p className="contact-info-item">
           <strong>Location:</strong>  Mikizini Street, Nairobi, Kenya
