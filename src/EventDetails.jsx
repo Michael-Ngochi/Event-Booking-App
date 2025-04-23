@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import './EventDetails.css'
+// import './EventDetails.css'
+import './App.css'
+
 
 const EventDetails = ({ event }) => {
   const [form, setForm] = useState({

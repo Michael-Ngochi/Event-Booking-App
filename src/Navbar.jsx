@@ -1,4 +1,5 @@
-import './Navbar.css'
+// import './Navbar.css'
+import './App.css'
 const Navbar = ({ onNavigate }) => {
     return (
       <nav className="navbar">
