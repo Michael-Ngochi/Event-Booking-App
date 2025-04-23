@@ -27,7 +27,7 @@ const EventDetails = ({ event }) => {
       bookingTime: new Date().toISOString()
     };
 
-    fetch('http://localhost:3001/bookings', {
+    fetch('http://localhost:4000/bookings', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
