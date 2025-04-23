@@ -97,5 +97,35 @@
     "price": 1500
   }
 ]
+,
+    "bookings": [
+      {
+        "id": 1,
+        "eventId": 1,
+        "name": "Stephen Ng’ochi",
+        "email": "stephen@example.com",
+        "phoneNo": "0712345678",
+        "noOfTickets": 2,
+        "bookingTime": "2025-04-22T09:00:00Z"
+      },
+      {
+        "id": 2,
+        "eventId": 2,
+        "name": "Joy Mwikali",
+        "email": "joymwikali@gmail.com",
+        "phoneNo": "0722123456",
+        "noOfTickets": 3,
+        "bookingTime": "2025-04-21T15:20:00Z"
+      },
+      {
+        "id": 3,
+        "eventId": 3,
+        "name": "Brian Otieno",
+        "email": "brianotieno@yahoo.com",
+        "phoneNo": "0733987654",
+        "noOfTickets": 1,
+        "bookingTime": "2025-04-20T18:45:00Z"
+      }
+    ]
   }
   
