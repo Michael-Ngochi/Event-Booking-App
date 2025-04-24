@@ -1,11 +1,12 @@
 import EventList from "./EventList";
 import { useEffect,useState } from "react";
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 const MyBookings = ({ events, onSelect }) => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/bookings')
+    fetch(`${API_URL}/bookings`)
       .then(res => res.json())
       .then(data => setBookings(data));
   }, []);
