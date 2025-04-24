@@ -1,6 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-const EventCard = ({ event, bookings }) => {
+const EventCard = ({ event, bookings ,onRemove }) => {
+  const handleRemoveClick = (e) => {
+    e.stopPropagation ();
+    e.preventDefault();
+    if (onRemove) {
+      onRemove(event.id);
+    }
+  };
     return (
       <Link to={`/events/${event.id}`} className="event-card-link">
       <div className="event-card">
@@ -9,7 +16,8 @@ const EventCard = ({ event, bookings }) => {
           <h3>{event.title}</h3>
           <p>{event.date} @ {event.location}</p>
           <p>KES {event.price} per ticket</p>
-          {bookings && <button>remove</button>}
+          {bookings && 
+          <button>remove</button>}
         </div>
       </div>
       </Link>
