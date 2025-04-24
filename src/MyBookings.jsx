@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import EventList from "./EventList";
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 const MyBookings = ({ events, onSelect }) => {
   const [bookings, setBookings] = useState([]);
@@ -7,16 +8,15 @@ const MyBookings = ({ events, onSelect }) => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const res = await fetch('http://localhost:4000/bookings');
+        const res = await fetch(`${API_URL}/bookings`);
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
         }
         const data = await res.json();
         setBookings(data);
-        console.log("Fetched bookings:", data); 
+        console.log("Fetched bookings:", data);
       } catch (error) {
         console.error("Error fetching bookings:", error);
-       
       }
     };
 
@@ -34,13 +34,10 @@ const MyBookings = ({ events, onSelect }) => {
     let bookingToRemove = bookings.find(b => String(b.eventId) === String(eventId));
 
    
-    if (!bookingToRemove && bookings.length > 0 && bookings[0].hasOwnProperty('id')) {
-      bookingToRemove = bookings.find(b => String(b.eventId) === String(eventId));
-      if (!bookingToRemove) {
-        bookingToRemove = bookings.find(b => String(b.id) === String(eventId));
-        if (bookingToRemove) {
-          console.warn("Found booking by 'id' instead of 'eventId'. Ensure consistency in your booking data.");
-        }
+    if (!bookingToRemove) {
+      bookingToRemove = bookings.find(b => String(b.id) === String(eventId));
+      if (bookingToRemove) {
+        console.warn("Found booking by 'id' instead of 'eventId'. Ensure consistency in your booking data.");
       }
     }
 
@@ -50,7 +47,7 @@ const MyBookings = ({ events, onSelect }) => {
     }
 
     try {
-      const res = await fetch(`http://localhost:4000/bookings/${bookingToRemove.id}`, {
+      const res = await fetch(`${API_URL}/bookings/${bookingToRemove.id}`, {
         method: 'DELETE',
       });
 

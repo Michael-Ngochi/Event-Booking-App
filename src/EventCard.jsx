@@ -19,7 +19,7 @@ const EventCard = ({ event, bookings, onRemove }) => {
           <p>{event.date} @ {event.location}</p>
           <p>KES {event.price} per ticket</p>
           {bookings && (
-            <button onClick={handleRemoveClick}>Remove</button>
+            <button className='removeBtn' onClick={handleRemoveClick}>Cancel booking</button>
           )}
         </div>
       </div>

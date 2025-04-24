@@ -21,7 +21,7 @@
       "startTime": "09:00",
       "endTime": "18:00",
       "coverPhoto": "https://kubwaadvocates.com/wp-content/uploads/2024/11/Lamu-Cultural-Fest.jpg",
-      "tickets": 149,
+      "tickets": 147,
       "price": 800
     },
     {
@@ -93,19 +93,9 @@
       "startTime": "09:30",
       "endTime": "16:30",
       "coverPhoto": "https://i.pinimg.com/474x/d6/92/fb/d692fb483e1cd2d792bac3b460e478c1.jpg",
-      "tickets": 70,
+      "tickets": 68,
       "price": 1500
     }
   ],
-  "bookings": [
-    {
-      "id": "3ed3",
-      "name": "nick",
-      "email": "nickian@gmail.com",
-      "phoneNo": "0746671216",
-      "noOfTickets": 1,
-      "eventId": "2",
-      "bookingTime": "2025-04-24T10:17:07.782Z"
-    }
-  ]
+  "bookings": []
 }
