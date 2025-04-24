@@ -1,56 +1,89 @@
-
 import { useEffect, useState } from "react";
 import EventList from "./EventList";
 
 const MyBookings = ({ events, onSelect }) => {
   const [bookings, setBookings] = useState([]);
-  console.log(bookings)
 
   useEffect(() => {
-    fetch('http://localhost:4000/bookings')
-      .then(res => res.json())
-      .then(data => setBookings(data));
+    const fetchBookings = async () => {
+      try {
+        const res = await fetch('http://localhost:4000/bookings');
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        const data = await res.json();
+        setBookings(data);
+        console.log("Fetched bookings:", data); 
+      } catch (error) {
+        console.error("Error fetching bookings:", error);
+       
+      }
+    };
+
+    fetchBookings();
   }, []);
-    
+
   const bookedEventIds = bookings.map(b => String(b.eventId));
-  console.log(bookedEventIds)
   const myEvents = events.filter(e => bookedEventIds.includes(e.id));
 
-  const handleRemoveBooking = (eventId) => {
-    const booking = bookings.find(b => b.eventId === eventId);
-    if (!booking) return;
+  const handleRemoveBooking = async (eventId) => {
+    console.log("Attempting to remove eventId:", eventId);
+    console.log("Current bookings state:", bookings);
 
-    fetch(`http://localhost:4000/bookings/${booking.id}`, {
-      method: `DELETE`
-    })
-      .then(res => {
-        if (res.ok) {
-          setBookings(prev => prev.filter(b => b.id !== booking.id));
-        } else {
-          throw new Error("Failed to delete booking");
+    
+    let bookingToRemove = bookings.find(b => String(b.eventId) === String(eventId));
+
+   
+    if (!bookingToRemove && bookings.length > 0 && bookings[0].hasOwnProperty('id')) {
+      bookingToRemove = bookings.find(b => String(b.eventId) === String(eventId));
+      if (!bookingToRemove) {
+        bookingToRemove = bookings.find(b => String(b.id) === String(eventId));
+        if (bookingToRemove) {
+          console.warn("Found booking by 'id' instead of 'eventId'. Ensure consistency in your booking data.");
         }
-      })
-
+      }
     }
 
+    if (!bookingToRemove) {
+      console.warn(`Booking with eventId ${eventId} not found in current bookings.`);
+      return;
+    }
 
-    return (
-      <div>
+    try {
+      const res = await fetch(`http://localhost:4000/bookings/${bookingToRemove.id}`, {
+        method: 'DELETE',
+      });
+
+      if (res.ok) {
+        setBookings(prevBookings => prevBookings.filter(b => b.id !== bookingToRemove.id));
+        console.log(`Booking with ID ${bookingToRemove.id} removed successfully.`);
+        
+      } else {
+        const errorData = await res.json();
+        console.error("Failed to delete booking:", errorData);
+        
+      }
+    } catch (error) {
+      console.error("Error deleting booking:", error);
+      
+    }
+  };
+
+  return (
+    <div>
       <h2>My Booked Events</h2>
-          {myEvents.length > 0 ? (
-            <EventList 
-            bookings={true}
-             events={myEvents}
-              onSelect={onSelect} 
-              onRemove={handleRemoveBooking}
-              />
-          ) : (
-            <p>You haven't booked any events yet.</p>
-          )}
-        </div>
-      );
-    
-
-}
+      {myEvents.length > 0 ? (
+        <EventList
+          bookings={true}
+          events={myEvents}
+          onSelect={onSelect}
+          onRemove={handleRemoveBooking}
+        />
+      ) : (
+        <p>You haven't booked any events yet.</p>
+      )}
+    </div>
+  );
+};
 
 export default MyBookings;

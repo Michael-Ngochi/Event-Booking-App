@@ -9,7 +9,7 @@
       "startTime": "10:00",
       "endTime": "17:00",
       "coverPhoto": "https://i.pinimg.com/236x/93/a7/6c/93a76c62c8caa7431378c8eb0974d9bf.jpg",
-      "tickets": 100,
+      "tickets": 0,
       "price": 500
     },
     {
@@ -21,7 +21,7 @@
       "startTime": "09:00",
       "endTime": "18:00",
       "coverPhoto": "https://kubwaadvocates.com/wp-content/uploads/2024/11/Lamu-Cultural-Fest.jpg",
-      "tickets": 150,
+      "tickets": 149,
       "price": 800
     },
     {
@@ -69,7 +69,7 @@
       "startTime": "10:00",
       "endTime": "19:00",
       "coverPhoto": "public/photo_2025-04-23_22-34-30.jpg",
-      "tickets": 250,
+      "tickets": 20,
       "price": 1200
     },
     {
@@ -99,40 +99,13 @@
   ],
   "bookings": [
     {
-      "id": "1",
-      "eventId": 1,
-      "name": "Stephen Ngochi",
-      "email": "stephen@example.com",
-      "phoneNo": "0712345678",
-      "noOfTickets": 2,
-      "bookingTime": "2025-04-22T09:00:00Z"
-    },
-    {
-      "id": "2",
-      "eventId": 2,
-      "name": "Joy Mwikali",
-      "email": "joymwikali@gmail.com",
-      "phoneNo": "0722123456",
-      "noOfTickets": 3,
-      "bookingTime": "2025-04-21T15:20:00Z"
-    },
-    {
-      "id": "3",
-      "eventId": 3,
-      "name": "Brian Otieno",
-      "email": "brianotieno@yahoo.com",
-      "phoneNo": "0733987654",
+      "id": "3ed3",
+      "name": "nick",
+      "email": "nickian@gmail.com",
+      "phoneNo": "0746671216",
       "noOfTickets": 1,
-      "bookingTime": "2025-04-20T18:45:00Z"
-    },
-    {
-      "id": "04aa",
-      "name": "John",
-      "email": "John@gmail.com",
-      "phoneNo": "0729296548",
-      "noOfTickets": 1,
-      "eventId": "5",
-      "bookingTime": "2025-04-24T00:01:36.668Z"
+      "eventId": "2",
+      "bookingTime": "2025-04-24T10:17:07.782Z"
     }
   ]
 }
