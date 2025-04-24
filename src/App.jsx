@@ -7,10 +7,7 @@ import EventDetails from './EventDetails';
 import './App.css'
 import MyBookings from './MyBookings';
 import ContactUs from './ContactUs';
-
-const API_URL = import.meta.env.VITE_API_URL;
-
-
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 const EventDetailsWrapper = ({ events }) => {
   const { id } = useParams();

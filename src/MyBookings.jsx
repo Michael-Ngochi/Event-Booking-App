@@ -1,7 +1,5 @@
 import EventList from "./EventList";
 import { useEffect,useState } from "react";
-const API_URL = import.meta.env.VITE_API_URL;
-
 
 const MyBookings = ({ events, onSelect }) => {
   const [bookings, setBookings] = useState([]);
