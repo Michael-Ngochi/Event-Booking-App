@@ -1,6 +1,7 @@
 import { useState } from 'react';
-// import './EventDetails.css'
 import './App.css'
+const API_URL = import.meta.env.VITE_API_URL;
+
 
 
 const EventDetails = ({ event }) => {
@@ -19,7 +20,7 @@ const EventDetails = ({ event }) => {
   };
 
   const reduceTickets = (eventId, remainingTickets) => {
-    return fetch(`http://localhost:4000/events/${eventId}`, {
+    return fetch(`${API_URL}/events/${eventId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -38,7 +39,7 @@ const EventDetails = ({ event }) => {
       bookingTime: new Date().toISOString()
     };
   
-    fetch('http://localhost:4000/bookings', {
+    fetch(`${API_URL}/bookings`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
