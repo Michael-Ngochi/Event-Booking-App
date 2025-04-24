@@ -1,11 +1,16 @@
-import EventCard from './EventCard';
+import EventCard from "./EventCard";
 
-const EventList = ({events, bookings}) => {
+const EventList = ({ events, bookings, onRemove }) => {
   return (
     <div className="event-list">
-      {events.map(event => (
-        <EventCard  bookings={bookings} key={event.id} event={event} />
-    ))}
+      {events.map((event) => (
+        <EventCard
+          bookings={bookings}
+          key={event.id}
+          event={event}
+          onRemove={onRemove}
+        />
+      ))}
     </div>
   );
 };
