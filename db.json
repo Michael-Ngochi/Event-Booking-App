@@ -133,15 +133,6 @@
       "noOfTickets": 1,
       "eventId": "5",
       "bookingTime": "2025-04-24T00:01:36.668Z"
-    },
-    {
-      "id": "3f29",
-      "name": "Planet",
-      "email": "mercy.maritm@student.moringaschool.com",
-      "phoneNo": "0729001664",
-      "noOfTickets": 1,
-      "eventId": "2",
-      "bookingTime": "2025-04-24T08:20:11.526Z"
     }
   ]
 }
