@@ -233,3 +233,12 @@ text-decoration-style: none;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease;
   }
+  .soldOutTag {
+    color: white;
+    background-color: crimson;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: inline-block;
+  }
