@@ -7,8 +7,7 @@ import EventDetails from './EventDetails';
 import './App.css'
 import MyBookings from './MyBookings';
 import ContactUs from './ContactUs';
-
-
+const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 const EventDetailsWrapper = ({ events }) => {
   const { id } = useParams();
@@ -28,7 +27,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://localhost:4000/events')
+    fetch(`${API_URL}/events`)
       .then(res => res.json())
       .then(data => setEvents(data));
   }, []);

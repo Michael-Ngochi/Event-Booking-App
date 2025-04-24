@@ -1,13 +1,14 @@
 
 import { useEffect, useState } from "react";
 import EventList from "./EventList";
+import { useEffect,useState } from "react";
 
 const MyBookings = ({ events, onSelect }) => {
   const [bookings, setBookings] = useState([]);
   console.log(bookings)
 
   useEffect(() => {
-    fetch('http://localhost:4000/bookings')
+    fetch(`${API_URL}/bookings`)
       .then(res => res.json())
       .then(data => setBookings(data));
   }, []);
