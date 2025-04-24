@@ -4,6 +4,7 @@ import EventList from "./EventList";
 
 const MyBookings = ({ events, onSelect }) => {
   const [bookings, setBookings] = useState([]);
+  console.log(bookings)
 
   useEffect(() => {
     fetch('http://localhost:4000/bookings')
@@ -12,6 +13,7 @@ const MyBookings = ({ events, onSelect }) => {
   }, []);
     
   const bookedEventIds = bookings.map(b => String(b.eventId));
+  console.log(bookedEventIds)
   const myEvents = events.filter(e => bookedEventIds.includes(e.id));
 
   const handleRemoveBooking = (eventId) => {
@@ -28,6 +30,8 @@ const MyBookings = ({ events, onSelect }) => {
           throw new Error("Failed to delete booking");
         }
       })
+
+    }
 
 
     return (
@@ -46,7 +50,7 @@ const MyBookings = ({ events, onSelect }) => {
         </div>
       );
     
-}
+
 }
 
 export default MyBookings;
