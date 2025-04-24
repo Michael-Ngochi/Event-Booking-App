@@ -57,7 +57,7 @@
       "startTime": "18:00",
       "endTime": "22:00",
       "coverPhoto": "https://i.pinimg.com/236x/4f/d6/b2/4fd6b25bf67b1eec8b0b6db772e3ddc7.jpg",
-      "tickets": 120,
+      "tickets": 119,
       "price": 600
     },
     {
@@ -93,7 +93,7 @@
       "startTime": "09:30",
       "endTime": "16:30",
       "coverPhoto": "https://i.pinimg.com/474x/d6/92/fb/d692fb483e1cd2d792bac3b460e478c1.jpg",
-      "tickets": 75,
+      "tickets": 70,
       "price": 1500
     }
   ],
@@ -101,7 +101,7 @@
     {
       "id": "1",
       "eventId": 1,
-      "name": "Stephen Ng’ochi",
+      "name": "Stephen Ngochi",
       "email": "stephen@example.com",
       "phoneNo": "0712345678",
       "noOfTickets": 2,
@@ -126,13 +126,13 @@
       "bookingTime": "2025-04-20T18:45:00Z"
     },
     {
-      "id": "fa17",
-      "name": "carlos",
-      "email": "carlkorir226@gmail.com",
-      "phoneNo": "0799202039",
+      "id": "04aa",
+      "name": "John",
+      "email": "John@gmail.com",
+      "phoneNo": "0729296548",
       "noOfTickets": 1,
-      "eventId": "2",
-      "bookingTime": "2025-04-23T15:47:13.377Z"
+      "eventId": "5",
+      "bookingTime": "2025-04-24T00:01:36.668Z"
     }
   ]
 }

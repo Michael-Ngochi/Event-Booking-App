@@ -1,8 +1,9 @@
 import React from 'react'
-
-const EventCard = ({ event, onSelect }) => {
+import { Link } from 'react-router-dom';
+const EventCard = ({ event }) => {
     return (
-      <div className="event-card" onClick={() => onSelect(event)}>
+      <Link to={`/events/${event.id}`} className="event-card-link">
+      <div className="event-card">
         <img src={event.coverPhoto} alt={event.title} className="event-img" />
         <div className="event-info">
           <h3>{event.title}</h3>
@@ -10,6 +11,7 @@ const EventCard = ({ event, onSelect }) => {
           <p>KES {event.price} per ticket</p>
         </div>
       </div>
+      </Link>
     );
   };
   

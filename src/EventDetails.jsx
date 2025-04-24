@@ -10,7 +10,7 @@ const EventDetails = ({ event }) => {
     phoneNo: '',
     noOfTickets: 1
   });
-
+  
   const [success, setSuccess] = useState(false);
 
   const handleChange = e => {
@@ -18,15 +18,26 @@ const EventDetails = ({ event }) => {
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
+  const reduceTickets = (eventId, remainingTickets) => {
+    return fetch(`http://localhost:4000/events/${eventId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ tickets: remainingTickets })
+    });
+  };
+  
+
   const handleSubmit = e => {
     e.preventDefault();
-
+  
     const booking = {
       ...form,
       eventId: event.id,
       bookingTime: new Date().toISOString()
     };
-
+  
     fetch('http://localhost:4000/bookings', {
       method: 'POST',
       headers: {
@@ -35,10 +46,23 @@ const EventDetails = ({ event }) => {
       body: JSON.stringify(booking)
     })
       .then(r => {
-        if (r.ok) {
+        if (!r.ok) throw new Error('Booking failed');
+        return r.json();
+      })
+      .then(() => {
+        const remainingTickets = event.tickets - parseInt(form.noOfTickets);
+        return reduceTickets(event.id, remainingTickets);
+      })
+      .then(res => {
+        if (res.ok) {
           setSuccess(true);
           setForm({ name: '', email: '', phoneNo: '', noOfTickets: 1 });
+          event.tickets -= parseInt(form.noOfTickets); 
         }
+      })
+      .catch(err => {
+        console.error(err);
+        alert('Something went wrong. Please try again.');
       });
   };
 
@@ -57,7 +81,7 @@ const EventDetails = ({ event }) => {
      
 
       <h3>Book Your Spot</h3>
-      {success && <p style={{ color: 'green' }}>Booking successful!</p>}
+      {success && <p style={{ color: 'white',background:"green",borderRadius:"10px",fontWeight:"bold",textAlign:"center",fontSize:"20px" }}>Booking successful!</p>}
       <form onSubmit={handleSubmit} className="booking-form">
         <input name="name" value={form.name} onChange={handleChange} placeholder="Your Name" required />
         <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Email" required />

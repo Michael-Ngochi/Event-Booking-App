@@ -1,22 +1,31 @@
+import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Navbar from './Navbar';
 import EventList from './EventList';
 import EventDetails from './EventDetails';
 import './App.css'
 import MyBookings from './MyBookings';
+import ContactUs from './ContactUs';
+
+
+
+const EventDetailsWrapper = ({ events }) => {
+  const { id } = useParams();
+  const event = events.find(e => String(e.id) === id);
+
+  return event ? (
+    <EventDetails event={event} />
+  ) : (
+    <p>Event not found.</p>
+  );
+};
+
 
 function App() {
-  const [view, setView] = useState('home');
   const [events, setEvents] = useState([]);
-  const [selectedEvent, setSelectedEvent] = useState(null);
-  const [bookings, setBookings] = useState([]);
 
 
-  useEffect(() => {
-    fetch('http://localhost:4000/bookings')
-      .then(res => res.json())
-      .then(data => setBookings(data));
-  }, []);
 
   useEffect(() => {
     fetch('http://localhost:4000/events')
@@ -24,35 +33,18 @@ function App() {
       .then(data => setEvents(data));
   }, []);
 
-  const handleSelectEvent = (event) => {
-    setSelectedEvent(event);
-    setView('eventDetails');
-  };
 
-  const renderView = () => {
-    switch (view) {
-      case 'home':
-        return <EventList events={events} onSelect={handleSelectEvent} />;
-      case 'eventDetails':
-        return selectedEvent && <EventDetails event={selectedEvent} />;
-      case 'bookings':
-        return <MyBookings
-        events={events}
-        bookings={bookings}
-        onSelect={handleSelectEvent}
-      />
-      case 'contact':
-        return <h2>Contact Us</h2>;
-      default:
-        return <h2>Welcome</h2>;
-    }
-  };
 
   return (
-    <div>
-      <Navbar onNavigate={setView} />
+    <div style={{margin:"0px"}}>
+      <Navbar />
       <main style={{ padding: '2rem' }}>
-        {renderView()}
+        <Routes>
+          <Route path="/" element={<EventList events={events}  />} />
+          <Route path="/bookings" element={<MyBookings events={events} />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/events/:id" element={<EventDetailsWrapper events={events} />} />
+          </Routes>
       </main>
     </div>
   );

@@ -1,13 +1,14 @@
 // import './Navbar.css'
+import { Link,NavLink } from 'react-router-dom';
 import './App.css'
-const Navbar = ({ onNavigate }) => {
+const Navbar = () => {
     return (
       <nav className="navbar">
         <h1 className="logo">Eventify</h1>
         <ul className="nav-links">
-          <li><button onClick={() => onNavigate("home")}>Home</button></li>
-          <li><button onClick={() => onNavigate("bookings")}>My Bookings</button></li>
-          <li><button onClick={() => onNavigate("contact")}>Contact Us</button></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/bookings">My Bookings</NavLink></li>
+        <li><NavLink to="/contact">Contact Us</NavLink></li>
         </ul>
       </nav>
     );

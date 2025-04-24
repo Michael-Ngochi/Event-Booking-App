@@ -90,28 +90,28 @@ const ContactUs = () => {
       <div className="social-icons">
         <a href="https://facebook.com" target="_blank" rel="noreferrer">
           <img
-            src="/assets/icons/facebook.png"
+            src="https://www.svgrepo.com/show/521654/facebook.svg"
             alt="Facebook"
             className="icon-img"
           />
         </a>
         <a href="https://twitter.com" target="_blank" rel="noreferrer">
           <img
-            src="/assets/icons/twitter.png"
-            alt="Twitter"
+            src="https://img.icons8.com/?size=100&id=fJp7hepMryiw&format=png&color=000000
+            alt='Twitter'"
             className="icon-img"
           />
         </a>
         <a href="https://instagram.com" target="_blank" rel="noreferrer">
           <img
-            src="/assets/icons/instagram.png"
+            src="https://www.svgrepo.com/show/512399/instagram-167.svg"
             alt="Instagram"
             className="icon-img"
           />
         </a>
         <a href="https://linkedin.com" target="_blank" rel="noreferrer">
           <img
-            src="/assets/icons/linkedin.png"
+            src="https://www.svgrepo.com/show/383915/linkedin-linked-in.svg"
             alt="LinkedIn"
             className="icon-img"
           />
