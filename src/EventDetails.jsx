@@ -68,7 +68,7 @@ const EventDetails = ({ event }) => {
 
   return (
     <div className="event-details">
-      <img src={event.coverPhoto} alt={event.title} className="event-details-img" />
+      <img src={`${event.coverPhoto}`} alt={event.title} className="event-details-img" />
       <h2>{event.title}</h2>
       <p><strong>Date:</strong> {event.date}</p>
       <p><strong>Time:</strong> {event.startTime} - {event.endTime}</p>
@@ -79,9 +79,10 @@ const EventDetails = ({ event }) => {
 
         
      
-
+      {event.tickets >0 ?(
+      <>
       <h3>Book Your Spot</h3>
-      {success && <p style={{ color: 'white',background:"green",borderRadius:"10px",fontWeight:"bold",textAlign:"center",fontSize:"20px" }}>Booking successful!</p>}
+      {success && (<p style={{ color: 'white',background:"green",borderRadius:"10px",fontWeight:"bold",textAlign:"center",fontSize:"20px" }}>Booking successful!</p>)}
       <form onSubmit={handleSubmit} className="booking-form">
         <input name="name" value={form.name} onChange={handleChange} placeholder="Your Name" required />
         <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="Email" required />
@@ -89,7 +90,10 @@ const EventDetails = ({ event }) => {
         <input name="noOfTickets" type="number" min="1" max={event.tickets} value={form.noOfTickets} onChange={handleChange} placeholder="No. of Tickets" required />
         <button type="submit">Confirm Booking</button>
       </form>
-    </div>
+      </>
+      ):(<p style={{ color: "crimson", fontWeight: "bold", fontSize: "18px" }}><strong>Sorry. This event in fully booked :(</strong></p>)
+      }
+ </div>
   );
 };
 
