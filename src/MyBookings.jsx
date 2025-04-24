@@ -17,7 +17,7 @@ const MyBookings = ({ events, onSelect }) => {
       <div>
       <h2>My Booked Events</h2>
           {myEvents.length > 0 ? (
-            <EventList events={myEvents} onSelect={onSelect} />
+            <EventList bookings={true} events={myEvents} onSelect={onSelect} />
           ) : (
             <p>You haven't booked any events yet.</p>
           )}

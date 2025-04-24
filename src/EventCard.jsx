@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-const EventCard = ({ event }) => {
+const EventCard = ({ event, bookings }) => {
     return (
       <Link to={`/events/${event.id}`} className="event-card-link">
       <div className="event-card">
@@ -9,6 +9,7 @@ const EventCard = ({ event }) => {
           <h3>{event.title}</h3>
           <p>{event.date} @ {event.location}</p>
           <p>KES {event.price} per ticket</p>
+          {bookings && <button>remove</button>}
         </div>
       </div>
       </Link>

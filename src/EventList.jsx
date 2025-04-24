@@ -1,10 +1,10 @@
 import EventCard from './EventCard';
 
-const EventList = ({events}) => {
+const EventList = ({events, bookings}) => {
   return (
     <div className="event-list">
       {events.map(event => (
-        <EventCard key={event.id} event={event} />
+        <EventCard  bookings={bookings} key={event.id} event={event} />
     ))}
     </div>
   );
