@@ -16,9 +16,10 @@ const MyBookings = ({ events, onSelect }) => {
 
   const handleRemoveBooking = (eventId) => {
     const booking = bookings.find(b => b.eventId === eventId);
-    if (!booking);
+    if (!booking) return;
+
     fetch(`http://localhost:4000/bookings/${booking.id}`, {
-      method: 'DELETE'
+      method: `DELETE`
     })
       .then(res => {
         if (res.ok) {
