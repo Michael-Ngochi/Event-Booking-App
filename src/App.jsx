@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Navbar from './Navbar';
-import EventList from './EventList';
-import EventDetails from './EventDetails';
+import Navbar from './components/Navbar';
+import EventList from './components/EventList';
+import EventDetails from './components/EventDetails';
 import './App.css'
-import MyBookings from './MyBookings';
-import ContactUs from './ContactUs';
+import MyBookings from './components/MyBookings';
+import ContactUs from './components/ContactUs';
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 const EventDetailsWrapper = ({ events }) => {
