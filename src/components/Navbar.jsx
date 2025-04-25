@@ -1,7 +1,6 @@
-// import './Navbar.css'
 import { Link,NavLink } from 'react-router-dom';
-import './App.css'
-import '../public/tent.svg'
+import '../App.css'
+import "../../public/tent.svg";
 const Navbar = () => {
     return (
       <nav className="navbar">

@@ -222,3 +222,23 @@ text-decoration-style: none;
   .icon-img:hover {
     transform: scale(1.1);
   }
+  .removeBtn {
+    background-color: #ef4444; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  .soldOutTag {
+    color: white;
+    background-color: crimson;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: inline-block;
+  }
